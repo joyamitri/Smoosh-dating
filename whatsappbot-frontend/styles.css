@@ -26,3 +26,11 @@ body {
     place-content: center;
     width: calc(100% - 40px);
 }
+
+.sign{
+    text-align: center;
+}
+
+.log{
+    text-align: center;
+}
