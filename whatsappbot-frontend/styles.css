@@ -65,3 +65,12 @@ body {
     position: relative;
     width: 50%;
 }
+
+@media (max-width: 767px) {
+    .left {
+      height: 100%;
+      left: 20px;
+      width: calc(100% - 40px);
+      max-height: 270px;
+    }
+}
