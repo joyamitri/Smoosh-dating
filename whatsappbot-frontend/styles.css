@@ -151,3 +151,7 @@ input::-moz-focus-inner {
     margin-top: 40px;
     transition: color 300ms;
 }
+
+#submit:focus {
+    color: #f2f2f2;
+}
