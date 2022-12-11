@@ -1,3 +1,7 @@
 ::selection {
     background: #2D2F36;
 }
+
+::-webkit-selection {
+    background: #2D2F36;
+}
