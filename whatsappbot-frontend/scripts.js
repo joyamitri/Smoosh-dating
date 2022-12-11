@@ -64,3 +64,20 @@ const form = document.getElementById('sign')
 form.addEventListener('click', function(){
   
 })
+
+pages.postAPI = async(api_url, api_data, api_token = null) => {  
+    try {
+        return await axios.post(
+            api_url, 
+            api_data,
+            {
+                headers:{
+                    'Authorization': "token" + api_token
+                }
+            }
+        )
+    } catch (error) {
+        console.log("Error from linking (POST)", error);
+    }
+    
+}
