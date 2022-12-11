@@ -5,3 +5,7 @@
 ::-webkit-selection {
     background: #2D2F36;
 }
+
+::-moz-selection {
+    background: #2D2F36;
+}
