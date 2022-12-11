@@ -59,3 +59,8 @@ document.getElementById('submit').addEventListener('focus', function(e) {
       }
     })
 })
+
+const form = document.getElementById('sign')
+form.addEventListener('click', function(){
+  
+})
