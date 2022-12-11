@@ -116,3 +116,8 @@ path {
     stroke-width: 4;
     stroke-dasharray: 240 1386;
 }
+
+.form {
+    margin: 40px;
+    position: absolute;
+}
