@@ -141,3 +141,7 @@ input {
     outline: none !important;
     width: 100%;
 }
+
+input::-moz-focus-inner { 
+    border: 0; 
+}
