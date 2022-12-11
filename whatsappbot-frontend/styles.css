@@ -9,3 +9,10 @@
 ::-moz-selection {
     background: #2D2F36;
 }
+
+body {
+    background: #180148;
+    font-family: 'Inter UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
