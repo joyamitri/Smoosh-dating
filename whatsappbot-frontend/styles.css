@@ -34,3 +34,11 @@ body {
 .log{
     text-align: center;
 }
+
+@media (max-width: 767px) {
+    .page {
+        height: auto;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+}
