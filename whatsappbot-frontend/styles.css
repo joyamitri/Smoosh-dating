@@ -95,3 +95,12 @@ body {
     position: relative;
     width: 50%;
 }
+
+@media (max-width: 767px) {
+    .right {
+      flex-shrink: 0;
+      height: 100%;
+      width: 100%;
+      max-height: 350px;
+    }
+}
