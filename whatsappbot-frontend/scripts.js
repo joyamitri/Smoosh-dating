@@ -41,4 +41,21 @@ document.getElementById('password').addEventListener('focus', function(e) {
         easing: 'easeOutQuart'
       }
     })
-  })
+})
+
+document.getElementById('submit').addEventListener('focus', function(e) {
+    if (current) current.pause()
+    current = anime({
+      targets: 'path',
+      strokeDashoffset: {
+        value: -730,
+        duration: 700,
+        easing: 'easeOutQuart'
+      },
+      strokeDasharray: {
+        value: '530 1386',
+        duration: 700,
+        easing: 'easeOutQuart'
+      }
+    })
+})
