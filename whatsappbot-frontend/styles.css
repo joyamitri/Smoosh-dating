@@ -49,3 +49,11 @@ body {
     margin: 0 auto;
     width: 640px;
 }
+
+@media (max-width: 767px) {
+    .container {
+      flex-direction: column;
+      height: 630px;
+      width: 320px;
+    }
+}
