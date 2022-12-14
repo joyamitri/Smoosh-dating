@@ -243,6 +243,16 @@ section{
     align-items: center;
 }
 
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: linear-gradient(to top, #F5DCE0, transparent);
+    z-index: 1000;
+}
+
 section img{
     position: absolute;
     top: 0;
@@ -527,4 +537,21 @@ section img.cloud{
 
 section img.cloud5{
     z-index: 10;
+}
+
+.sec{
+    position: relative;
+    padding: 100px;
+    /* background-color: #eef0f5; */
+}
+
+.sec h2{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.sec p{
+    font-size: 1.2em;
+    color: #fff;
 }
