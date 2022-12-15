@@ -25,6 +25,7 @@ body {
     font-family: 'Inter UI', sans-serif;
     margin: 0;
     padding: 20px;
+    overflow-x: hidden;
 }
 
 .page {
@@ -182,6 +183,7 @@ input::-moz-focus-inner {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .body{
