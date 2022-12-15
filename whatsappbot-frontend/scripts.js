@@ -1,5 +1,5 @@
 const pages = {}
-const base_url = "localhost:8000/api"
+const base_url = "http://localhost:8000/api"
 
 // ##################################
 //         LOGIN AND SIGNUP
@@ -94,3 +94,19 @@ pages.postAPI = async(api_url, api_data, api_token = null) => {
     }
     
 }
+
+// ##################################
+//         LANDING PAGE
+// ##################################
+
+let sky = document.querySelectorAll('.cloud')
+let txt = document.querySelector('text')
+window.addEventListener('scroll', function(){
+  const value = window.scrollY
+  for(let i = 0; i < sky.length; i++){
+    sky[i].style.left = sky[i].getBoundingClientRect().left + value * 0.025 + 'px'
+  }
+
+})
+
+
