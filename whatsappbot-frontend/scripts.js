@@ -2,6 +2,27 @@ const pages = {}
 const base_url = "http://localhost:8000/api"
 
 // ##################################
+//         POST AND GET APIS
+// ##################################
+
+pages.postAPI = async(api_url, api_data, api_token = null) => {  
+  try {
+      return await axios.post(
+          api_url, 
+          api_data,
+          {
+              headers:{
+                  'Authorization': "token" + api_token
+              }
+          }
+      )
+  } catch (error) {
+      console.log("Error from linking (POST)", error);
+  }
+  
+}
+
+// ##################################
 //         LOGIN AND SIGNUP
 // ##################################
 let current;
@@ -13,7 +34,7 @@ pages.loadFor = (page) => {
 }
 
 pages.load_login = () =>{
-    const api_url = base_url + "/login"
+    const api_url = base_url + "/user/login"
 
     username.addEventListener('focus', function(e) {
         if (current) current.pause()
@@ -66,32 +87,16 @@ pages.load_login = () =>{
         })
     })
     
-    const form = document.getElementById('sign')
+    const form = document.getElementById('submit')
     form.addEventListener('click', async function(){
         const formData = new FormData()
         const user = username.value
         const pass = password.value
         formData.append("username", user)
         formData.append("password", pass)
-        const resp = await axios.postAPI(api_url, formData)
+        const resp = await pages.postAPI(api_url, formData)
+        console.log(resp)
     })
-    
-}
-
-pages.postAPI = async(api_url, api_data, api_token = null) => {  
-    try {
-        return await axios.post(
-            api_url, 
-            api_data,
-            {
-                headers:{
-                    'Authorization': "token" + api_token
-                }
-            }
-        )
-    } catch (error) {
-        console.log("Error from linking (POST)", error);
-    }
     
 }
 
