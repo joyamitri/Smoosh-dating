@@ -12,12 +12,12 @@ pages.postAPI = async(api_url, api_data, api_token = null) => {
           api_data,
           {
               headers:{
-                  'Authorization': "token" + api_token
+                  'Authorization': "token" + localStorage.getItem(api_token)
               }
           }
       )
   } catch (error) {
-      console.log("Error from linking (POST)", error);
+      console.log("Error from linking (POST)", error)
   }
   
 }
@@ -96,7 +96,9 @@ pages.load_login = () =>{
         formData.append("username", user)
         formData.append("password", pass)
         const resp = await pages.postAPI(api_url, formData)
-        console.log(resp)
+        const tokn = resp.data.access_token
+        localStorage.setItem('Token', tokn)
+
     })
     
 }
