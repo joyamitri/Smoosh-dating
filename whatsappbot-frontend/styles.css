@@ -117,6 +117,24 @@ body {
     }
 }
 
+.right-sign {    
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 50%;
+  height:400px;
+}
+
+@media (max-width: 767px) {
+  .right-sign {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 380px;
+  }
+}
+
 svg {
     position: absolute;
     width: 320px;
