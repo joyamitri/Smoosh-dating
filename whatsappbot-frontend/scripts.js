@@ -12,7 +12,7 @@ pages.postAPI = async(api_url, api_data, api_token = null) => {
           api_data,
           {
               headers:{
-                  'Authorization': "token" + localStorage.getItem(api_token)
+                  'Authorization': "Bearer" + localStorage.getItem(api_token)
               }
           }
       )
@@ -20,6 +20,18 @@ pages.postAPI = async(api_url, api_data, api_token = null) => {
       console.log("Error from linking (POST)", error)
   }
   
+}
+
+pages.getAPI = async(api_url) => { 
+
+  try{
+
+      return await axios(api_url)
+
+  }catch(error){
+
+      console.log("Error from linking (GET)", error);
+  }
 }
 
 pages.loadFor = (page) => { 
@@ -96,80 +108,75 @@ pages.load_login = () =>{
         formData.append("username", user)
         formData.append("password", pass)
         const resp = await pages.postAPI(api_url, formData)
-        const tokn = resp.data.access_token
-        localStorage.setItem('Token', tokn)
+        if(resp){
+          // const tokn = resp.data.access_token
+          console.log(resp)
+
+        }
+        else{
+          const txt = document.querySelector(".eula")
+          txt.innerHTML = "INCORRECT USERNAME OR PASSWORD!"
+        }
 
     })
     
 }
 
+pages.load_signup = () => {
 
-// pages.load_signup = () =>{
-//   const api_url = base_url + "/user/signup"
+  const api_url = base_url + "/auth/register"
 
-//   username.addEventListener('focus', function(e) {
-//       if (current) current.pause()
-//       current = anime({
-//           targets: 'path',
-//           strokeDashoffset: {
-//           value: 0,
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//           },
-//           strokeDasharray: {
-//           value: '240 1386',
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//           }
-//       })
-//   })
-  
-//   password.addEventListener('focus', function(e) {
-//       if (current) current.pause()
-//       current = anime({
-//         targets: 'path',
-//         strokeDashoffset: {
-//           value: -336,
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//         },
-//         strokeDasharray: {
-//           value: '240 1386',
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//         }
-//       })
-//   })
-  
-//   document.getElementById('submit').addEventListener('focus', function(e) {
-//       if (current) current.pause()
-//       current = anime({
-//         targets: 'path',
-//         strokeDashoffset: {
-//           value: -730,
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//         },
-//         strokeDasharray: {
-//           value: '530 1386',
-//           duration: 700,
-//           easing: 'easeOutQuart'
-//         }
-//       })
-//   })
-  
-//   const form = document.getElementById('submit')
-//   form.addEventListener('click', async function(){
-//       const formData = new FormData()
-//       const user = username.value
-//       const pass = password.value
-//       formData.append("username", user)
-//       formData.append("password", pass)
-//       const resp = await pages.postAPI(api_url, formData)
-//       console.log(resp)
-//   })
-  
-// }
+  username.addEventListener('focus', function(e) {
+    if (current) current.pause()
+    current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+        value: 0,
+        duration: 700,
+        easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+        value: '240 1386',
+        duration: 700,
+        easing: 'easeOutQuart'
+        }
+      })
+    })
+
+    password.addEventListener('focus', function(e) {
+      if (current) current.pause()
+      current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+        value: -336,
+        duration: 700,
+        easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+        value: '240 1386',
+        duration: 700,
+        easing: 'easeOutQuart'
+        }
+      })
+  })
+
+  document.getElementById('submit').addEventListener('focus', function(e) {
+    if (current) current.pause()
+    current = anime({
+      targets: 'path',
+      strokeDashoffset: {
+      value: -730,
+      duration: 700,
+      easing: 'easeOutQuart'
+      },
+      strokeDasharray: {
+      value: '530 1386',
+      duration: 700,
+      easing: 'easeOutQuart'
+      }
+    })
+  })
+}
 
 // ##################################
 //         LANDING PAGE
