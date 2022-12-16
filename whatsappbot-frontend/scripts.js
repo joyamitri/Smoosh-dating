@@ -44,6 +44,8 @@ pages.loadFor = (page) => {
 let current;
 const username = document.getElementById('username')
 const password = document.getElementById('password')
+const form = document.getElementById('submit')
+const num = document.getElementById('no')
 
 
 pages.load_login = () =>{
@@ -100,7 +102,6 @@ pages.load_login = () =>{
         })
     })
     
-    const form = document.getElementById('submit')
     form.addEventListener('click', async function(){
         const formData = new FormData()
         const user = username.value
@@ -143,7 +144,7 @@ pages.load_signup = () => {
       })
     })
 
-    password.addEventListener('focus', function(e) {
+    num.addEventListener('focus', function(e){
       if (current) current.pause()
       current = anime({
         targets: 'path',
@@ -158,25 +159,47 @@ pages.load_signup = () => {
         easing: 'easeOutQuart'
         }
       })
-  })
-
-  document.getElementById('submit').addEventListener('focus', function(e) {
-    if (current) current.pause()
-    current = anime({
-      targets: 'path',
-      strokeDashoffset: {
-      value: -730,
-      duration: 700,
-      easing: 'easeOutQuart'
-      },
-      strokeDasharray: {
-      value: '530 1386',
-      duration: 700,
-      easing: 'easeOutQuart'
-      }
     })
+
+    password.addEventListener('focus', function(e) {
+      if (current) current.pause()
+      current = anime({
+        targets: 'path',
+        strokeDashoffset: {
+        value: -668,
+        duration: 700,
+        easing: 'easeOutQuart'
+        },
+        strokeDasharray: {
+        value: '240 1386',
+        duration: 700,
+        easing: 'easeOutQuart'
+        }
+      })
+    })
+
+    form.addEventListener('click', async function(){
+      const formData = new FormData()
+      const user = username.value
+      const pass = password.value
+      const numb = num.value
+      formData.append("username", user)
+      formData.append("password", pass)
+      formData.append("phone_number", numb)
+      const resp = await pages.postAPI(api_url, formData)
+      if(resp){
+        // const tokn = resp.data.access_token
+        console.log(resp)
+
+      }
+      else{
+        const txt = document.querySelector(".eula")
+        txt.innerHTML = "INCORRECT USERNAME OR PASSWORD!"
+      }
+
   })
 }
+
 
 // ##################################
 //         LANDING PAGE
