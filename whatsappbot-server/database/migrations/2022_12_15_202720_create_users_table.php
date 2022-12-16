@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->integer('phone_number');
             $table->string('password');
-            $table->integer('user_types_id');
+            $table->integer('user_types_id')->default('1');
             $table->integer('is_blocked')->default('0');
             $table->integer('count_request')->default('0');
             $table->timestamps();
