@@ -19,8 +19,8 @@ return new class extends Migration
             $table->integer('phone_number');
             $table->string('password');
             $table->integer('user_types_id');
-            $table->integer('is_blocked');
-            $table->integer('count_request');
+            $table->integer('is_blocked')->default('0');
+            $table->integer('count_request')->default('0');
             $table->timestamps();
         });
     }
