@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Landing Page</title>
     <link href="./styles.css" rel="stylesheet">
 </head>
 <body class="body">
@@ -23,6 +23,7 @@
         <img src="./assets/clouds.png" class="cloud cloud5">
         <img src="./assets/moon.png" class="cloud moon">
         <h3 class="text">Welcome</h3>
+        <a href="#sec" class="btn">Start</a>
         <div class="sky">
             <div class="star"></div>
             <div class="star"></div>
@@ -33,26 +34,17 @@
             <div class="star"></div>
         </div>
     </section>
-    <div class="sec">
-        <h2>Parallax Scrolling Effect</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem est non, tempora itaque iste corrupti, nemo distinctio id voluptatum debitis, sed mollitia dolor cumque beatae labore aut! Voluptatibus, velit ullam!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere eos adipisci sed eius. Voluptatibus libero quo saepe mollitia adipisci fuga temporibus nemo alias ut laudantium! Quidem delectus voluptatibus sunt ipsum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptas eum quis, sunt harum animi vitae ab temporibus ratione laboriosam maiores ipsa odit omnis, quam optio eligendi repudiandae accusantium placeat.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis at mollitia qui natus. Laudantium incidunt temporibus at. Quisquam ab sapiente possimus consequatur modi, fugit eligendi qui voluptate cupiditate repellat!
-            <br> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem est non, tempora itaque iste corrupti, nemo distinctio id voluptatum debitis, sed mollitia dolor cumque beatae labore aut! Voluptatibus, velit ullam!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere eos adipisci sed eius. Voluptatibus libero quo saepe mollitia adipisci fuga temporibus nemo alias ut laudantium! Quidem delectus voluptatibus sunt ipsum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptas eum quis, sunt harum animi vitae ab temporibus ratione laboriosam maiores ipsa odit omnis, quam optio eligendi repudiandae accusantium placeat.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis at mollitia qui natus. Laudantium incidunt temporibus at. Quisquam ab sapiente possimus consequatur modi, fugit eligendi qui voluptate cupiditate repellat!
-            <br> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem est non, tempora itaque iste corrupti, nemo distinctio id voluptatum debitis, sed mollitia dolor cumque beatae labore aut! Voluptatibus, velit ullam!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere eos adipisci sed eius. Voluptatibus libero quo saepe mollitia adipisci fuga temporibus nemo alias ut laudantium! Quidem delectus voluptatibus sunt ipsum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptas eum quis, sunt harum animi vitae ab temporibus ratione laboriosam maiores ipsa odit omnis, quam optio eligendi repudiandae accusantium placeat.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis at mollitia qui natus. Laudantium incidunt temporibus at. Quisquam ab sapiente possimus consequatur modi, fugit eligendi qui voluptate cupiditate repellat!
-            <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem est non, tempora itaque iste corrupti, nemo distinctio id voluptatum debitis, sed mollitia dolor cumque beatae labore aut! Voluptatibus, velit ullam!
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere eos adipisci sed eius. Voluptatibus libero quo saepe mollitia adipisci fuga temporibus nemo alias ut laudantium! Quidem delectus voluptatibus sunt ipsum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptas eum quis, sunt harum animi vitae ab temporibus ratione laboriosam maiores ipsa odit omnis, quam optio eligendi repudiandae accusantium placeat.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque perferendis at mollitia qui natus. Laudantium incidunt temporibus at. Quisquam ab sapiente possimus consequatur modi, fugit eligendi qui voluptate cupiditate repellat!
-        </p>
+    <div class="sec" id ="sec">
+        <h2>Let's Get Started!</h2>
+        <div class="disp">
+            <img class = "hov" src="./assets/text.jpg" alt="send message" id="txtMessage">
+            <img class = "hov" src="./assets/pic.jpg" alt="send picture" id="picMessage">
+            <img class = "hov" src="./assets/video.png" alt="send video" id="vidMessage">
+        </div>
     </div>
     <script src="./scripts.js"></script>
+    <script>
+        pages.loadFor("landing")
+    </script>
 </body>
 </html>
