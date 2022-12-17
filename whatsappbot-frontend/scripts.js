@@ -30,7 +30,7 @@ pages.getAPI = async(api_url) => {
 
   }catch(error){
 
-      console.log("Error from linking (GET)", error);
+      console.log("Error from linking (GET)", error)
   }
 }
 
@@ -110,7 +110,6 @@ pages.load_login = () =>{
         formData.append("password", pass)
         const resp = await pages.postAPI(api_url, formData)
         if(resp){
-          // const tokn = resp.data.access_token
           console.log(resp)
 
         }
@@ -188,7 +187,6 @@ pages.load_signup = () => {
       formData.append("phone_number", numb)
       const resp = await pages.postAPI(api_url, formData)
       if(resp){
-        // const tokn = resp.data.access_token
         console.log(resp)
 
       }
