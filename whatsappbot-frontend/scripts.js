@@ -205,14 +205,15 @@ pages.load_signup = () => {
 //         LANDING PAGE
 // ##################################
 
-let sky = document.querySelectorAll('.cloud')
-let txt = document.querySelector('text')
-window.addEventListener('scroll', function(){
-  const value = window.scrollY
-  for(let i = 0; i < sky.length; i++){
-    sky[i].style.left = sky[i].getBoundingClientRect().left + value * 0.025 + 'px'
-  }
-
+pages.load_landing = () => {
+  let sky = document.querySelectorAll('.cloud')
+  let btn = document.querySelector('.btn')
+  window.addEventListener('scroll', function(){
+    const value = window.scrollY
+    for(let i = 0; i < sky.length; i++){
+      sky[i].style.opacity = "calc(1 - " + value + ")"
+      
+    }
+    btn.style.marginTop = value * 1.5 + 'px'
 })
-
-
+}
