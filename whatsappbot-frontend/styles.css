@@ -261,6 +261,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 section::before{
@@ -280,10 +281,14 @@ section img{
     width: 30%;
     height: 30%;
     object-fit: cover;
+    pointer-events: none;
 }
 
 section img.cloud{
     mix-blend-mode: screen;
+    opacity: 1;
+    transition: opacity 2s linear;
+    -webkit-transition: opacity 2s linear;
 }
 
 .cloud1{
@@ -555,6 +560,19 @@ section img.cloud{
     z-index: 9;
 }
 
+.btn{
+  text-decoration: none;
+  display: flex;
+  padding: 8px 30px;
+  border-radius: 40px;
+  background: #fff;
+  color: #ECBDC4;
+  font-size: 1.5em;
+  z-index: 9;
+  transform: translateY(100px);
+  position: absolute;
+}
+
 section img.cloud5{
     z-index: 10;
 }
@@ -562,7 +580,6 @@ section img.cloud5{
 .sec{
     position: relative;
     padding: 100px;
-    /* background-color: #eef0f5; */
 }
 
 .sec h2{
@@ -574,4 +591,34 @@ section img.cloud5{
 .sec p{
     font-size: 1.2em;
     color: #fff;
+}
+
+.hov {
+  width: 100%;
+  height:100%;
+  --_g: 10% /45% 45% no-repeat linear-gradient(#000 0 0);
+  --m:
+    left   var(--_i,0%) top    var(--_g),
+    bottom var(--_i,0%) left   var(--_g),
+    top    var(--_i,0%) right  var(--_g),
+    right  var(--_i,0%) bottom var(--_g);
+  -webkit-mask: var(--m);
+          mask: var(--m);
+  outline: 100vmax solid #00B4FF;
+  outline-offset: -100vmax;
+  transition: .3s linear;
+  cursor: pointer;
+}
+.hov:hover {
+  --_i: 10%;
+  outline-color: #0000;
+}
+
+.disp {
+  margin: 0;
+  display: grid;
+  min-height: 100vh;
+  grid-auto-flow :column;
+  place-content: center;
+  gap: 40px;
 }
