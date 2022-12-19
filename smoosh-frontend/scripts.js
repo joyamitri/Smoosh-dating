@@ -114,8 +114,8 @@ smoosh.load_login = () =>{
         formData.append("password", pass)
         const resp = await smoosh.postAPI(api_url, formData)
         if(resp){
-          console.log(resp)
-
+          localStorage.setItem("account_jwt", resp.data.access_token)
+          window.location.replace("./Landing-page.html")
         }
         else{
           const txt = document.querySelector(".eula")
