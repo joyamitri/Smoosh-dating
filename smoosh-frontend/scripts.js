@@ -192,8 +192,7 @@ smoosh.load_signup = () => {
       formData.append("email", mail)
       const resp = await smoosh.postAPI(api_url, formData)
       if(resp){
-        console.log(resp)
-
+        window.location.replace("./login.html")
       }
       else{
         const txt = document.querySelector(".eula")
