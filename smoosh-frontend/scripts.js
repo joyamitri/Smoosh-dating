@@ -215,7 +215,7 @@ smoosh.location = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       localStorage.setItem("latitude", position.coords.latitude)
       localStorage.setItem("longitude", position.coords.longitude)
-      friendoo.postAPI(
+      smoosh.postAPI(
         "/location/update",
         { latitude: position.coords.latitude, longitude: position.coords.longitude },
         localStorage.getItem("access_token"),
