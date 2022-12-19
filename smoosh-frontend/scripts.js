@@ -231,7 +231,7 @@ smoosh.location = () => {
       smoosh.postAPI(
         "/location/update",
         { latitude: position.coords.latitude, longitude: position.coords.longitude },
-        localStorage.getItem("access_token"),
+        localStorage.getItem("account_jwt"),
       )
     })
   } else {
@@ -246,8 +246,12 @@ smoosh.location = () => {
 // ##################################
 
 smoosh.load_landing = () => {
+  const startBtn = document.getElementById('startBTN')
   let sky = document.querySelectorAll('.cloud')
   let btn = document.querySelector('.btn')
+  startBtn.addEventListener('click', function() {
+    window.location.replace("./Browse.html")
+  })
   window.addEventListener('scroll', function(){
     const value = window.scrollY
     for(let i = 0; i < sky.length; i++){
@@ -255,5 +259,6 @@ smoosh.load_landing = () => {
       
     }
     btn.style.marginTop = value * 1.5 + 'px'
-})
+  })
+
 }
