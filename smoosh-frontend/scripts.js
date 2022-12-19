@@ -1,11 +1,11 @@
-const pages = {}
+const smoosh = {}
 const base_url = "http://localhost:8000/api"
 
 // ##################################
 //         POST AND GET APIS
 // ##################################
 
-pages.postAPI = async(api_url, api_data, api_token = null) => {  
+smoosh.postAPI = async(api_url, api_data, api_token = null) => {  
   try {
       return await axios.post(
           api_url, 
@@ -22,7 +22,7 @@ pages.postAPI = async(api_url, api_data, api_token = null) => {
   
 }
 
-pages.getAPI = async(api_url) => { 
+smoosh.getAPI = async(api_url) => { 
 
   try{
 
@@ -34,8 +34,8 @@ pages.getAPI = async(api_url) => {
   }
 }
 
-pages.loadFor = (page) => { 
-  eval("pages.load_" + page + "();")
+smoosh.loadFor = (page) => { 
+  eval("smoosh.load_" + page + "();")
 }
 
 // ##################################
@@ -48,7 +48,7 @@ const form = document.getElementById('submit')
 const num = document.getElementById('no')
 
 
-pages.load_login = () =>{
+smoosh.load_login = () =>{
     const api_url = base_url + "/auth/login"
 
     username.addEventListener('focus', function(e) {
@@ -108,7 +108,7 @@ pages.load_login = () =>{
         const pass = password.value
         formData.append("username", user)
         formData.append("password", pass)
-        const resp = await pages.postAPI(api_url, formData)
+        const resp = await smoosh.postAPI(api_url, formData)
         if(resp){
           console.log(resp)
 
@@ -122,7 +122,7 @@ pages.load_login = () =>{
     
 }
 
-pages.load_signup = () => {
+smoosh.load_signup = () => {
 
   const api_url = base_url + "/auth/register"
 
@@ -185,7 +185,7 @@ pages.load_signup = () => {
       formData.append("username", user)
       formData.append("password", pass)
       formData.append("phone_number", numb)
-      const resp = await pages.postAPI(api_url, formData)
+      const resp = await smoosh.postAPI(api_url, formData)
       if(resp){
         console.log(resp)
 
@@ -198,12 +198,22 @@ pages.load_signup = () => {
   })
 }
 
+// ##################################
+//         Calculate Distance 
+// ##################################
+smoosh.computeDistance = (latitude, longitude) =>{
+  const lat = localStorage.getItem("latitude") - latitude;
+  const long = localStorage.getItem("longitude") - longitude;
+  return Math.round(Math.sqrt(lat * lat + long * long));
+}
+
+
 
 // ##################################
 //         LANDING PAGE
 // ##################################
 
-pages.load_landing = () => {
+smoosh.load_landing = () => {
   let sky = document.querySelectorAll('.cloud')
   let btn = document.querySelector('.btn')
   window.addEventListener('scroll', function(){
