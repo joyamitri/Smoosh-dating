@@ -202,9 +202,28 @@ smoosh.load_signup = () => {
 //         Calculate Distance 
 // ##################################
 smoosh.computeDistance = (latitude, longitude) =>{
-  const lat = localStorage.getItem("latitude") - latitude;
-  const long = localStorage.getItem("longitude") - longitude;
-  return Math.round(Math.sqrt(lat * lat + long * long));
+  const lat = localStorage.getItem("latitude") - latitude
+  const long = localStorage.getItem("longitude") - longitude
+  return Math.round(Math.sqrt(lat * lat + long * long))
+}
+
+// ##################################
+//         GET LOCATION 
+// ##################################
+smoosh.location = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      localStorage.setItem("latitude", position.coords.latitude)
+      localStorage.setItem("longitude", position.coords.longitude)
+      friendoo.postAPI(
+        "/location/update",
+        { latitude: position.coords.latitude, longitude: position.coords.longitude },
+        localStorage.getItem("access_token"),
+      )
+    })
+  } else {
+    console.log("Geo Location is not supported by this browser.");
+  }
 }
 
 
