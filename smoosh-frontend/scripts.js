@@ -123,11 +123,16 @@ smoosh.load_login = () =>{
         }
 
     })
+
+    sign.addEventListener('click', function(){
+      window.location.replace('./Signup.html')
+    })
     
 }
 
 smoosh.load_signup = () => {
   const log = document.getElementById('log')
+  const sign = document.getElementById('sign')
 
   const api_url = base_url + "/auth/register"
 
