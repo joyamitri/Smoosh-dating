@@ -127,6 +127,7 @@ smoosh.load_login = () =>{
 }
 
 smoosh.load_signup = () => {
+  const log = document.getElementById('log')
 
   const api_url = base_url + "/auth/register"
 
@@ -199,6 +200,10 @@ smoosh.load_signup = () => {
         txt.innerHTML = "INCORRECT USERNAME OR PASSWORD!"
       }
 
+  })
+
+  log.addEventListener('click', function(){
+    window.location.replace('./login.html')
   })
 }
 
