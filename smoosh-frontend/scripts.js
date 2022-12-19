@@ -49,7 +49,7 @@ let current;
 const username = document.getElementById('username')
 const password = document.getElementById('password')
 const form = document.getElementById('submit')
-const num = document.getElementById('no')
+const email = document.getElementById('email')
 
 
 smoosh.load_login = () =>{
@@ -147,7 +147,7 @@ smoosh.load_signup = () => {
       })
     })
 
-    num.addEventListener('focus', function(e){
+    email.addEventListener('focus', function(e){
       if (current) current.pause()
       current = anime({
         targets: 'path',
@@ -185,10 +185,10 @@ smoosh.load_signup = () => {
       const formData = new FormData()
       const user = username.value
       const pass = password.value
-      const numb = num.value
+      const mail = email.value
       formData.append("username", user)
       formData.append("password", pass)
-      formData.append("phone_number", numb)
+      formData.append("email", mail)
       const resp = await smoosh.postAPI(api_url, formData)
       if(resp){
         console.log(resp)
