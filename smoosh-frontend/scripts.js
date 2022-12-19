@@ -22,11 +22,15 @@ smoosh.postAPI = async(api_url, api_data, api_token = null) => {
   
 }
 
-smoosh.getAPI = async(api_url) => { 
+smoosh.getAPI = async(api_url, api_token=null) => { 
 
   try{
 
-      return await axios(api_url)
+      return await axios(api_url,{
+        headers:{
+            'Authorization': "Bearer" + localStorage.getItem(api_token)
+        }
+    })
 
   }catch(error){
 
