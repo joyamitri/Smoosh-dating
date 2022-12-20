@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name')->nullable();
+            $table->string('full_name')->default('');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('about')->nullable();
+            $table->string('about')->default('');
             $table->string('status')->default('Online');
-            $table->string('interest');
-            $table->string('picture_url');
-            $table->string('gender');
+            $table->string('interest')->default('');
+            $table->string('picture_url')->default('');
+            $table->string('gender')->default('');
             $table->decimal('latitude')->default('0');
             $table->decimal('longitude')->default('0');
             $table->integer('user_types_id')->default('1');
