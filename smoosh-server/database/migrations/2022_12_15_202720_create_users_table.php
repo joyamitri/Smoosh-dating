@@ -15,15 +15,18 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name')->default('');
+            $table->string('full_name')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('about')->default('');
+            $table->string('about')->nullable();
+            $table->string('status')->default('Online');
+            $table->string('interest');
+            $table->string('picture_url');
+            $table->string('gender');
             $table->decimal('latitude')->default('0');
             $table->decimal('longitude')->default('0');
             $table->integer('user_types_id')->default('1');
-            $table->integer('is_blocked')->default('0');
             $table->timestamps();
         });
     }
