@@ -34,7 +34,7 @@ Route::group([
 
 Route::group(['middleware'=> 'api', 'prefix' => 'auth'], function(){
     Route::post('update_user', [UsersController::class, 'updateUser']);
-    Route::get('all', [UsersController::class, 'getInterested']);
+    Route::get('users/all', [UsersController::class, 'getInterested']);
     Route::get('favorites/all', [UsersController::class, 'getFavorites']);
     Route::get('contacts/all', [UsersController::class, 'getContacts']);
     Route::post('block', [UsersController::class, 'switchBlock']);
