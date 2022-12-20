@@ -13,7 +13,7 @@
 <body>
 
 <div class="blog-slider">
-  <div class="blog-slider__wrp swiper-wrapper">
+  <div class="blog-slider__wrp swiper-wrapper" id="content">
     <div class="blog-slider__item swiper-slide">
       <div class="blog-slider__img">
         
@@ -53,9 +53,12 @@
   </div>
   <div class="blog-slider__pagination"></div>
 </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
 <script  src="./scripts.js"></script>
-
+<script>
+  smoosh.loadFor('browse')
+</script>
 </body>
 </html>
