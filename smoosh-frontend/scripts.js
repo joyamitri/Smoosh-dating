@@ -267,15 +267,40 @@ smoosh.load_landing = () => {
 //         BROWSE PAGE
 // ##################################
 
-let swiper = new Swiper('.blog-slider', {
-  spaceBetween: 30,
-  effect: 'fade',
-  loop: true,
-  mousewheel: {
-    invert: false,
-  },
-  pagination: {
-    el: '.blog-slider__pagination',
-    clickable: true,
-  }
-});
+smoosh.load_browse = async () =>{
+  const api_url = base_url + "/auth/all"
+  const users = await smoosh.getAPI(api_url, localStorage.getItem('account_token'))
+  // console.log(users)
+
+  let swiper = new Swiper('.blog-slider', {
+    spaceBetween: 30,
+    effect: 'fade',
+    loop: true, 
+    mousewheel: {
+      invert: false,
+    },
+    pagination: {
+      el: '.blog-slider__pagination',
+      clickable: true,
+    }
+  })
+  // const prof = document.getElementById('content')
+  // prof.innerHTML = 
+  // `<div class="blog-slider__item swiper-slide">
+  //     <div class="blog-slider__img">
+        
+  //       <img src="./assets/${user.picture_url}" alt="">
+  //     </div>
+  //     <div class="blog-slider__content">
+  //       <span class="blog-slider__code">Distance: ${computeDistance(user.latitude, user.longitude)}</span>
+  //       <div class="blog-slider__title">${user.username}</div>
+  //       <div class="blog-slider__text">About: ${user.about}
+  //       Status: ${user.status}</div>
+  //       <a href="#" class="blog-slider__button">READ MORE</a>
+  //     </div>
+  //   </div>`
+}
+
+
+
+
