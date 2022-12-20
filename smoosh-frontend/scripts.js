@@ -43,6 +43,10 @@ smoosh.loadFor = (page) => {
   eval("smoosh.load_" + page + "();")
 }
 
+smoosh.load_For = (page, u) => {
+  eval("smoosh.load_" + page + '(' + u + ');')
+}
+
 // ##################################
 //         LOGIN AND SIGNUP
 // ##################################
@@ -337,11 +341,18 @@ accountBtn.addEventListener('click', function(){
           <div class="blog-slider__title">${users.data.data[i].username}</div>
           <div class="blog-slider__text">About: ${users.data.data[i].about}
           <br>Status: ${users.data.data[i].status}</div>
-          <a href="#" class="blog-slider__button">READ MORE</a>
+          <a class="blog-slider__button">READ MORE</a>
         </div>
       </div>`
+
+      // document.querySelector('.blog-slider__button').addEventListener('click', function(){
+      //   window.location.replace('./Account.html')
+      //   smoosh.load_view(users.data.data[i])
+      //   console.log(users.data.data[i])
+      // })
   }
 }
+
 smoosh.load_account = async() => {
   const prof = document.getElementById('main-window')
   const api_url = base_url + "/auth/user-profile"
@@ -363,7 +374,7 @@ smoosh.load_account = async() => {
   accountBtn.addEventListener('click', function(){
     window.location.replace('./account.html')
   })
-  document.getElementById('main-window').innerHTML =
+  prof.innerHTML =
   `<div class='user-image' style= background: url(./assets/${user.data.picture_url})>
   <div class='add-button'>+</div>
   <div class='username'>${user.data.full_name}</div>
