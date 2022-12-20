@@ -7,7 +7,7 @@ use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Response;
 class UsersController extends Controller
 {
     public function getJWTIdentifier(){
@@ -41,7 +41,7 @@ class UsersController extends Controller
     function getInterested(){
 
         $user = User::find(Auth::id());
-        $blocked = Block::where('user_id', Auth::id())
+        $blocked = Block::where('users_id', Auth::id())
                     ->where('state',1)
                     ->get();
         $liked = Favorite::where('users_id', Auth::id())
@@ -74,7 +74,7 @@ class UsersController extends Controller
     function getContacts(){
 
         $user = User::find(Auth::id());
-        $blocked = Block::where('user_id', Auth::id())
+        $blocked = Block::where('users_id', Auth::id())
                     ->where('state',1)
                     ->get();
         
@@ -118,7 +118,7 @@ class UsersController extends Controller
 
     function switchBlock(Request $request){
 
-        $blocked = Block::where('user_id', Auth::id())
+        $blocked = Block::where('users_id', Auth::id())
                     ->where('blocked_id',$request->blocked_id)
                     ->first();
         if($blocked){
