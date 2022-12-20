@@ -24,10 +24,10 @@ class UsersController extends Controller
         $user->full_name = $request->full_name ? $request->full_name : $user->full_name;
         $user->about = $request->about ? $request->about : $user->about;
         $user->interest = $request->interest ? $request->interest : $user->interest;
-        $user->status = $request->status ? $request->status : $user->status;
-        $user->password = $request->password ? $request->password : $user->password;
         $user->picture_url = $request->picture_url ? $request->picture_url : $user->picture_url;
         $user->gender = $request->gender ? $request->gender : $user->gender;
+        $user->latitude = $request->latitude ? $request->latitude : $user->latitude;
+        $user->longitude = $request->longitude ? $request->longitude : $user->longitude;
     
         if($user->save()) {
             return Response::json([
