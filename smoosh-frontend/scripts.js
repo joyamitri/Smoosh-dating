@@ -349,27 +349,58 @@ smoosh.load_account = async() => {
   const browseBtn = document.getElementById('browse')
   const chatBtn = document.getElementById('chat')
   const accountBtn = document.getElementById('account')
-  const tkn = localStorage.getItem('access_jwt')
+  const tkn = localStorage.getItem('account_jwt')
   const user = await smoosh.getAPI(api_url, tkn)
   console.log(user)
-  // homeBtn.addEventListener('click', function(){
-  //   window.location.replace('./Landing-page.html')
-  // })
-  // browseBtn.addEventListener('click',function(){
-  //   window.location.replace('./Browse.html')
-  // })
-  // chatBtn.addEventListener('click', function(){
-  //   window.location.replace('./chat.html')
-  // })
-  // accountBtn.addEventListener('click', function(){
-  //   window.location.replace('./account.html')
-  // })
-  // document.getElementById("add-btn").onclick = async () => {
+  homeBtn.addEventListener('click', function(){
+    window.location.replace('./Landing-page.html')
+  })
+  browseBtn.addEventListener('click',function(){
+    window.location.replace('./Browse.html')
+  })
+  chatBtn.addEventListener('click', function(){
+    window.location.replace('./chat.html')
+  })
+  accountBtn.addEventListener('click', function(){
+    window.location.replace('./account.html')
+  })
+  document.getElementById('main-window').innerHTML =
+  `<div class='user-image'>
+  <div class='add-button'>+</div>
+  <div class='username'>${user.data.full_name}</div>
+</div>
+<div class='user-info'>
+  <div class='quote'>${user.data.about}</div>
+</div>
+
+<div class='social-info'>
+  <div class='social-info-elm'>STATUS<br><span class='lg'>${user.data.status}</span></div>
+  <div class='social-info-elm'>DISTANCE: <br><span class='lg'>${smoosh.computeDistance(user.data.latitude, user.data.longitude)}</span></div>
+  <div class='social-info-elm'>INTEREST<br><span class='lg'>${user.data.interest}</span></div>
+</div>
+
+</div>`
+//   document.querySelector(".add-button").addEventListener("click", async function(){
+//     document.getElementById('main-window').innerHTML =
+//   `<div class='user-image'>
+//   <div class='add-button'>^.^</div>
+//   <input class='username' placeholder="full name">
+// </div>
+// <div class='user-info'>
+//   <input class='quote' placeholder="about...">
+// </div>
+
+// <div class='social-info'>
+//   <div class='social-info-elm'>STATUS<br><input class='lg'></div>
+//   <div class='social-info-elm'>DISTANCE: <br><span class='lg'>${smoosh.computeDistance(user.data.latitude, user.data.longitude)}</span></div>
+//   <div class='social-info-elm'>INTEREST<br><span class='lg'>${user.data.interest}</span></div>
+// </div>
+
+// </div>`
   //   let newState = {
-  //     username: document.getElementById("username").value,
-  //     email: document.getElementById("email").value,
-  //     about: document.getElementById("about").value,
-  //     status: document.getElementById("description").value,
+  //     full_name: document.getElementById("username").value,
+  //     about: document.getElementById("quote").value,
+  //     status: document.querySelector("lg").value,
   //     interest: document.getElementById("interested").value,
   //     gender: document.getElementById("gender").value,
   //   }
@@ -379,7 +410,16 @@ smoosh.load_account = async() => {
   //   );
   //   if (res.data)
   //     localStorage.setItem("friendooUser", JSON.stringify(res.data.data))
-  // }
+  // })
+
+  document.getElementById('logout').addEventListener('click', async function(){
+    const fd = new FormData()
+    const api_url = base_url + '/auth/logout'
+    const resp = await smoosh.postAPI(api_url, fd, localStorage.getItem('account_jwt'))
+    if(resp){
+      window.location.replace('./login.html')
+    }
+  })
 }
  
 
