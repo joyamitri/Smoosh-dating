@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
     <link href="./styles.css" rel="stylesheet">
 </head>
 <body class="body">
     <header>
-        <a href="" class="logo">Smoosh</a>
+        <a class="logo">Smoosh</a>
         <ul>
-            <li><a href ="" class="active">Home</a></li>
-            <li><a id="about">About</a></li>
-            <li><a id="about">Chats</a></li>
-            <li><a href="">Account</a></li>
+            <li><a class="active" id="home">Home</a></li>
+            <li><a id="browse">Browse</a></li>
+            <li><a id="chat">Chats</a></li>
+            <li><a id="account">Account</a></li>
         </ul>
     </header>
     <section>
@@ -46,6 +48,7 @@
         <h2>About Smoosh!</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facere impedit sit sed architecto asperiores explicabo praesentium optio odit accusantium quam voluptatum aut sunt esse, culpa, quas voluptatem vel ipsa.</p>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script src="./scripts.js"></script>
     <script>
         smoosh.loadFor("landing")

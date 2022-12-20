@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Account</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="./account-style.css">
+
+</head>
+<header>
+    <a class="logo">Smoosh</a>
+    <ul>
+        <li><a id="home">Home</a></li>
+        <li><a id="browse">Browse</a></li>
+        <li><a id="chat">Chats</a></li>
+        <li><a class="active" id="account">Account</a></li>
+    </ul>
+</header>
+<body>
+    
+<div class='container' id='container'>
+
+  <div class='card-wrapper'>
+    <div class='main-window' id='main-window'>
+
+      <div class='user-image'>
+        <div class='add-button'>+</div>
+        <div class='username'>Jane C. Doe</div>
+      </div>
+      <div class='user-info'>
+        <div class='quote'>"Where there is coffee, there is life. Loves to read, paint and sleep."</div>
+      </div>
+
+      <div class='social-info'>
+        <div class='social-info-elm'>FOLLOWERS<br><span class='lg'>1293</span></div>
+        <div class='social-info-elm'>FOLLOWING<br><span class='lg'>219</span></div>
+        <div class='social-info-elm'>STORIES<br><span class='lg'>92</span></div>
+      </div>
+
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+  <script  src="./scripts.js"></script>
+  <script>
+    smoosh.loadFor("account")
+  </script>
+</body>
+</html>

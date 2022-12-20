@@ -1,6 +1,7 @@
 const smoosh = {}
 const base_url = "http://localhost:8000/api"
 
+
 // ##################################
 //         POST AND GET APIS
 // ##################################
@@ -12,7 +13,7 @@ smoosh.postAPI = async(api_url, api_data, api_token = null) => {
           api_data,
           {
               headers:{
-                  'Authorization': "Bearer" + localStorage.getItem(api_token)
+                  'Authorization': `Bearer ${api_token}`
               }
           }
       )
@@ -28,7 +29,7 @@ smoosh.getAPI = async(api_url, api_token=null) => {
 
       return await axios(api_url,{
         headers:{
-            'Authorization': "Bearer" + localStorage.getItem(api_token)
+            'Authorization': `Bearer ${api_token}`
         }
     })
 
@@ -245,7 +246,26 @@ smoosh.location = () => {
 //         LANDING PAGE
 // ##################################
 
+
+
 smoosh.load_landing = () => {
+  const homeBtn = document.getElementById('home')
+const browseBtn = document.getElementById('browse')
+const chatBtn = document.getElementById('chat')
+const accountBtn = document.getElementById('account')
+
+homeBtn.addEventListener('click', function(){
+  window.location.replace('./Landing-page.html')
+})
+browseBtn.addEventListener('click',function(){
+  window.location.replace('./Browse.html')
+})
+chatBtn.addEventListener('click', function(){
+  window.location.replace('./chat.html')
+})
+accountBtn.addEventListener('click', function(){
+  window.location.replace('./account.html')
+})
   const startBtn = document.getElementById('startBTN')
   let sky = document.querySelectorAll('.cloud')
   let btn = document.querySelector('.btn')
@@ -267,10 +287,30 @@ smoosh.load_landing = () => {
 //         BROWSE PAGE
 // ##################################
 
+
+
 smoosh.load_browse = async () =>{
-  const api_url = base_url + "/auth/all"
-  const users = await smoosh.getAPI(api_url, localStorage.getItem('account_token'))
-  // console.log(users)
+  const homeBtn = document.getElementById('home')
+const browseBtn = document.getElementById('browse')
+const chatBtn = document.getElementById('chat')
+const accountBtn = document.getElementById('account')
+
+homeBtn.addEventListener('click', function(){
+  window.location.replace('./Landing-page.html')
+})
+browseBtn.addEventListener('click',function(){
+  window.location.replace('./Browse.html')
+})
+chatBtn.addEventListener('click', function(){
+  window.location.replace('./chat.html')
+})
+accountBtn.addEventListener('click', function(){
+  window.location.replace('./account.html')
+})
+  const api_url = base_url + "/auth/users/all"
+  // console.log(localStorage.getItem('account_jwt'))
+  const users = await smoosh.getAPI(api_url, localStorage.getItem('account_jwt'))
+  
 
   let swiper = new Swiper('.blog-slider', {
     spaceBetween: 30,
@@ -284,22 +324,64 @@ smoosh.load_browse = async () =>{
       clickable: true,
     }
   })
-  // const prof = document.getElementById('content')
-  // prof.innerHTML = 
-  // `<div class="blog-slider__item swiper-slide">
-  //     <div class="blog-slider__img">
-        
-  //       <img src="./assets/${user.picture_url}" alt="">
-  //     </div>
-  //     <div class="blog-slider__content">
-  //       <span class="blog-slider__code">Distance: ${computeDistance(user.latitude, user.longitude)}</span>
-  //       <div class="blog-slider__title">${user.username}</div>
-  //       <div class="blog-slider__text">About: ${user.about}
-  //       Status: ${user.status}</div>
-  //       <a href="#" class="blog-slider__button">READ MORE</a>
-  //     </div>
-  //   </div>`
+  const prof = document.getElementById('content')
+  for(let i = 0; i < users.data.data.length; i++){
+    prof.innerHTML += 
+    `<div class="blog-slider__item swiper-slide">
+        <div class="blog-slider__img">
+          
+          <img src="./assets/${users.data.data[i].picture_url}" alt="">
+        </div>
+        <div class="blog-slider__content">
+          <span class="blog-slider__code">Distance: ${smoosh.computeDistance(users.data.data[i].latitude, users.data.data[0].longitude)}</span>
+          <div class="blog-slider__title">${users.data.data[i].username}</div>
+          <div class="blog-slider__text">About: ${users.data.data[i].about}
+          <br>Status: ${users.data.data[i].status}</div>
+          <a href="#" class="blog-slider__button">READ MORE</a>
+        </div>
+      </div>`
+  }
 }
+smoosh.load_account = async() => {
+  const prof = document.getElementById('main-window')
+  const api_url = base_url + "/auth/user-profile"
+  const homeBtn = document.getElementById('home')
+  const browseBtn = document.getElementById('browse')
+  const chatBtn = document.getElementById('chat')
+  const accountBtn = document.getElementById('account')
+  const tkn = localStorage.getItem('access_jwt')
+  const user = await smoosh.getAPI(api_url, tkn)
+  console.log(user)
+  // homeBtn.addEventListener('click', function(){
+  //   window.location.replace('./Landing-page.html')
+  // })
+  // browseBtn.addEventListener('click',function(){
+  //   window.location.replace('./Browse.html')
+  // })
+  // chatBtn.addEventListener('click', function(){
+  //   window.location.replace('./chat.html')
+  // })
+  // accountBtn.addEventListener('click', function(){
+  //   window.location.replace('./account.html')
+  // })
+  // document.getElementById("add-btn").onclick = async () => {
+  //   let newState = {
+  //     username: document.getElementById("username").value,
+  //     email: document.getElementById("email").value,
+  //     about: document.getElementById("about").value,
+  //     status: document.getElementById("description").value,
+  //     interest: document.getElementById("interested").value,
+  //     gender: document.getElementById("gender").value,
+  //   }
+  //   let res = await smoosh.postAPI(
+  //     "/update_user",
+  //     newState
+  //   );
+  //   if (res.data)
+  //     localStorage.setItem("friendooUser", JSON.stringify(res.data.data))
+  // }
+}
+ 
 
 
 
