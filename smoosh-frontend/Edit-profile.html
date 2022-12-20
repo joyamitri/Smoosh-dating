@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="./edit-style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">  
+  <div id="contact">
+    <h3>Edit Your Profile</h3>
+    <h4>Enter all the details below</h4>
+    <fieldset>
+      <input placeholder="Full name" type="text" id="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="About Yourself" type="text" id="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Interest" type="text" id="3" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Picture URL img.png" type="text" id="4" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Gender" id="5" type = "text" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Latitude" id="6" type = "number" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Longitute" id="7" type = "number" required>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </div>
+ 
+  
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+<script  src="./scripts.js"></script>
+<script>
+  smoosh.loadFor("edit")
+</script>
+</body>
+</html>
